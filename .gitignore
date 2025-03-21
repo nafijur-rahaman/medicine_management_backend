@@ -1,0 +1,57 @@
+# Python bytecode files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+
+# Django migrations
+*/migrations/*
+!*/migrations/__init__.py
+
+# Database files
+db.sqlite3
+*.sqlite3
+
+# Media files
+media/
+
+# Static files
+static/
+
+# Environment variables
+.env
+
+# Virtual environment
+venv/
+env/
+.venv/
+.ENV/
+.env/
+
+# Django secret key
+secret_key.txt
+
+# IDE files
+.vscode/
+.idea/
+
+# PyCharm
+*.iml
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Coverage reports
+.coverage
+coverage.xml
+*.cover
+
+# mypy
+.mypy_cache/
+
+# Django Debug Logs
+*.log
+
+# Local configuration files
+local_settings.py
