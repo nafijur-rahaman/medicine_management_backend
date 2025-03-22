@@ -101,20 +101,22 @@ class MedicineStockSerializer(serializers.ModelSerializer):
 
 # Order Serializer
 
+
+
 class OrderSerializer(serializers.ModelSerializer):
-    # Customer details
+
     customer_name = serializers.CharField(source='customer.name', read_only=True)
     customer_phone = serializers.CharField(source='customer.phone', read_only=True)
     customer_email = serializers.EmailField(source='customer.email', read_only=True)
     customer_address = serializers.CharField(source='customer.address', read_only=True)
 
-    # Medicine details
+
     medicine_name = serializers.CharField(source='medicine.name', read_only=True)
 
-    # Ordered by details
+
     ordered_by_username = serializers.CharField(source='ordered_by.username', read_only=True)
 
-    # Write-only fields for input
+  
     customer = serializers.CharField(write_only=True)
     medicine = serializers.CharField(write_only=True)
     ordered_by = serializers.CharField(write_only=True)
@@ -159,7 +161,7 @@ class OrderSerializer(serializers.ModelSerializer):
             ordered_by_username = validated_data.pop('ordered_by')
             instance.ordered_by = CustomUser.objects.get(username=ordered_by_username)
 
-        # Update other fields
+
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
 
@@ -167,7 +169,10 @@ class OrderSerializer(serializers.ModelSerializer):
         return instance
 
     def generate_order_id(self):
-        """Generate a random order ID."""
-        return ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
+     
+        random_number = random.randint(100, 999)  # Generate a random number between 100 and 999
+        order_id = f"ORD{random_number}"
+        return order_id
+
 
 
