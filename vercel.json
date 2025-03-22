@@ -7,7 +7,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "Donation_platform/wsgi.py"
+      "dest": "medicine_management/wsgi.py"
     }
   ]
 }
